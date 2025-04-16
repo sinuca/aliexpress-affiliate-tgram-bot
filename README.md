@@ -25,8 +25,9 @@ Preencha as variáveis do arquivo .env com:
 
 - Token do bot do Telegram (criado via @BotFather);
 - App key;
-- Affiliate token;
-- Link do seu canal (https://t.me/dongximusiccc por exemplo).
+- App secret;
+- Tracking id;
+- Link do seu canal (https://t.me/CanalExemplo).
 
 
 ## How To get Aliexpress API : 

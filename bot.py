@@ -22,8 +22,8 @@ load_dotenv()
 
 bot = telebot.TeleBot(os.getenv('BOT_TOKEN'))
   
-aliexpress = AliexpressApi(os.getenv('APP_KEY'), os.getenv('AFF_TOKEN'),
-                           models.Language.PT, models.Currency.BRL, 'default')
+aliexpress = AliexpressApi(os.getenv('APP_KEY'), os.getenv('APP_SECRET'),
+                           models.Language.PT, models.Currency.BRL, os.getenv('TRACKING_ID'))
 # In[3]:
 
 keyboardStart = types.InlineKeyboardMarkup(row_width=1)
