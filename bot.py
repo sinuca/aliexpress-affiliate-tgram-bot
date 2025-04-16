@@ -90,7 +90,7 @@ def button_click(callback_query):
          "✅3- Clique no botão de pagamento para ser redirecionado para a página de confirmação\n" \
          "✅4- Clique no ícone acima e copie o link aqui no bot para obter o link de desconto"
 
-  img_link1 = "https://i.postimg.cc/HkMxWS1T/photo-5893070682508606111-y.jpg"
+  img_link1 = "https://picsum.photos/1022/771"
   bot.send_photo(callback_query.message.chat.id,
                  img_link1,
                  caption=text,
@@ -207,7 +207,7 @@ def get_affiliate_shopcart_link(link, message):
     text2 = f"Este é o link para o desconto no carrinho. \n" \
            f"{str(affiliate_link)}" \
 
-    img_link3 = "https://i.postimg.cc/HkMxWS1T/photo-5893070682508606111-y.jpg"
+    img_link3 = "https://picsum.photos/1022/771"
     bot.send_photo(message.chat.id, img_link3, caption=text2)
 
   except:
@@ -243,7 +243,7 @@ def get_link(message):
 def handle_callback_query(call):
   bot.send_message(call.message.chat.id, "..")
 
-  img_link2 = "https://i.postimg.cc/zvDbVTS0/photo-5893070682508606110-x.jpg"
+  img_link2 = "https://picsum.photos/784/449"
   bot.send_photo(
       call.message.chat.id,
       img_link2,
