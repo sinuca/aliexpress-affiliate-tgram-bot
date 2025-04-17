@@ -32,10 +32,10 @@ btn1 = types.InlineKeyboardButton("⭐️Jogos de colecionar moedas⭐️",
 btn2 = types.InlineKeyboardButton("⭐️Desconto monetário em produtos da cesta 🛒⭐️",
                                   callback_data='click')
 btn4 = types.InlineKeyboardButton("🎬 Veja como o bot funciona 🎬",
-                                  url="https://t.me/dongximusiccc")
+                                  url=os.getenv('CHANNEL_LINK'))
 btn5 = types.InlineKeyboardButton(
-    "💰 Baixe o aplicativo Aliexpress clicando aqui para ganhar uma recompensa de US$ 5 💰",
-    url="https://a.aliexpress.com/_mtV0j3q")
+    "💰 Desconto exclusivo de até 70% na primeira compra 💰",
+    url=os.getenv('SHARE_EARN_LINK'))
 keyboardStart.add(btn1, btn2, btn4, btn5)
 
 keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -51,7 +51,7 @@ keyboard.add(btn1, btn2, btn3)
 keyboard_games = types.InlineKeyboardMarkup(row_width=1)
 btn1 = types.InlineKeyboardButton(
     " ⭐️ Página de revisão diária e coleta de pontos ⭐️",
-    url="https://s.click.aliexpress.com/e/_on0MwkF")
+    url="https://s.click.aliexpress.com/e/_ol8VJ2T")
 btn2 = types.InlineKeyboardButton(
     "⭐️ Jogo Merge boss ⭐️", url="https://s.click.aliexpress.com/e/_DlCyg5Z")
 btn3 = types.InlineKeyboardButton(
@@ -103,16 +103,17 @@ def button_click(callback_query):
 def get_affiliate_links(message, message_id, link):
   try:
 
-  
+    source = os.getenv('TRACKING_ID')
     affiliate_links = aliexpress.get_affiliate_links(
-        f'https://star.aliexpress.com/share/share.htm?platform=AE&businessType=ProductDetail&redirectUrl={link}?sourceType=561&aff_fcid='
+        f'{link}?utm_source={source}&sourceType=620&improveDiscount=Y&BuyNow=true'
     )
     pprint.pp(affiliate_links)
     affiliate_link = super_links = limit_links = affiliate_links[0].promotion_link
 
     try:
+      timestamp = str(int(float("%.2f" % (float(time.time()))) * 1000));
       img_link = aliexpress.get_products_details([
-          '1000006468625',
+          timestamp,
           f'https://star.aliexpress.com/share/share.htm?platform=AE&businessType=ProductDetail&redirectUrl={link}'
       ])
       pprint.pp(img_link)
